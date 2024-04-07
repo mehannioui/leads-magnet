@@ -18,10 +18,12 @@
     "@tiptap/pm": "^2.2.6",
     "@tiptap/react": "^2.2.6",
     "@tiptap/starter-kit": "^2.2.6",
+    "@uploadthing/react": "^6.4.1",
     "ai": "^3.0.19",
     "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "dayjs": "^1.11.10",
     "lucide-react": "^0.365.0",
     "next": "14.1.4",
     "openai": "^4.33.0",
@@ -36,6 +38,7 @@
     "stripe": "^14.24.0",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
+    "uploadthing": "^6.7.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {

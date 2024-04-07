@@ -1,7 +1,7 @@
 'use client';
 
 import { BsArrowLeft, BsCheck, BsPencil } from 'react-icons/bs';
-import { useLeadMagnetEditorContext } from '@/context/LeadMagnetEditorContex';
+import { useLeadMagnetEditorContext } from '@/context/LeadMagnetEditorContext';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Input } from '@/components/ui/input';

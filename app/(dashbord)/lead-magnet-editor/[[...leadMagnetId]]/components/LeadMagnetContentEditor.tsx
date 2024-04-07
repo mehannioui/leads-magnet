@@ -1,5 +1,5 @@
 import { Input } from '@/components/ui/input';
-import { useLeadMagnetEditorContext } from '@/context/LeadMagnetEditorContex';
+import { useLeadMagnetEditorContext } from '@/context/LeadMagnetEditorContext';
 import StarterKit from '@tiptap/starter-kit';
 // import Bold from '@tiptap/extension-bold';
 // import CodeBlock from '@tiptap/extension-code-block';

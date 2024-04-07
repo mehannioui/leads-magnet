@@ -1,5 +1,5 @@
 import LeadMagnetAIChatContainer from '@/components/LeadMagnetAIChatContainer';
-import { useLeadMagnetEditorContext } from '@/context/LeadMagnetEditorContex';
+import { useLeadMagnetEditorContext } from '@/context/LeadMagnetEditorContext';
 import React from 'react';
 
 function LeadMagnetPromptEditor() {

@@ -1,6 +1,6 @@
 'use client';
 
-import { LeadMagnetEditorContextProvider } from '@/context/LeadMagnetEditorContex';
+import { LeadMagnetEditorContextProvider } from '@/context/LeadMagnetEditorContext';
 import { LeadMagnet } from '@prisma/client';
 import React from 'react';
 import LeadMagnetEditor from './LeadMagnetEditor';
