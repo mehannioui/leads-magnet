@@ -19,7 +19,7 @@ const routes = [
 function DashboardNavBar() {
   const pathname = usePathname();
 
-  console.log('pathname', pathname);
+  // console.log('pathname', pathname);
 
   return (
     <div className='p-4 flex justify-between items-center text-purple-500 border-b-2'>
