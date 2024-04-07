@@ -1,31 +1,39 @@
-'use client';
-
-import { LeadMagnetEditorContextProvider } from '@/context/LeadMagnetEditorContext';
+import { prismadb } from '@/lib/prismadb';
 import { LeadMagnet } from '@prisma/client';
 import React from 'react';
-import LeadMagnetEditor from './LeadMagnetEditor';
-import { useSession } from '@clerk/nextjs';
-import LoadingScreen from '@/components/LoadingScreen';
-import { ProfileEditorContextProvider } from '@/context/ProfileEditorContext';
+import { DEFAULT_LEAD_MAGNET } from './lead-magnet-constants';
+import LeadMagnetNotFound from '@/components/LeadMagnetNotFound';
+import LeadMagnetEditorContainer from './components/LeadMagnetEditorContainer';
 
-interface LeadMagnetEditorContainerProps {
-  leadMagnet: LeadMagnet;
+interface LeadMagnetEditorParams {
+  params: {
+    leadMagnetId: string[];
+  };
 }
 
-function LeadMagnetEditorContainer({
-  leadMagnet,
-}: LeadMagnetEditorContainerProps) {
-  const { isLoaded } = useSession();
+async function LeadMagnetEditorPage({ params }: LeadMagnetEditorParams) {
+  const leadMagnetId =
+    params.leadMagnetId?.length > 0 ? params.leadMagnetId[0] : null;
 
-  if (!isLoaded) return <LoadingScreen />;
+  console.log('leadMagnetId', leadMagnetId);
 
-  return (
-    <LeadMagnetEditorContextProvider leadMagnet={leadMagnet}>
-      <ProfileEditorContextProvider>
-        <LeadMagnetEditor />
-      </ProfileEditorContextProvider>
-    </LeadMagnetEditorContextProvider>
-  );
+  let leadMagnet: LeadMagnet | null = null;
+
+  if (!leadMagnetId) {
+    leadMagnet = DEFAULT_LEAD_MAGNET;
+  } else {
+    leadMagnet = await prismadb.leadMagnet.findUnique({
+      where: {
+        id: leadMagnetId,
+      },
+    });
+  }
+
+  if (!leadMagnet) {
+    return <LeadMagnetNotFound returnLink='/leadmagnets' />;
+  }
+
+  return <LeadMagnetEditorContainer leadMagnet={leadMagnet} />;
 }
 
-export default LeadMagnetEditorContainer;
+export default LeadMagnetEditorPage;
