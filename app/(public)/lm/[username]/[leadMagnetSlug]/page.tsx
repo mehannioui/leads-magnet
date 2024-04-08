@@ -55,7 +55,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@bhancock_ai',
+      site: '@ai-leads-magnet',
       title: title,
       description: description,
       images: openGraphImage,
